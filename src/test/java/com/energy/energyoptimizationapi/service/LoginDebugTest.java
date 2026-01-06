@@ -10,7 +10,6 @@ import org.springframework.web.client.RestTemplate;
 
 public class LoginDebugTest {
 
-    // 👇 PON AQUÍ TUS CREDENCIALES REALES PARA LA PRUEBA (Las que funcionaron en el HTML)
     private static final String EMAIL_REAL = "sebastianvh111@gmail.com";
     private static final String PASS_REAL = "02Dramaturgy";
 
