@@ -21,7 +21,7 @@ public class MobilityController {
     @GetMapping("/bus/{stopId}")
     @Operation(summary = "📅 Tiempo de llegada Autobús", description = "Consulta a la API real de la EMT cuánto falta para el bus")
     public ResponseEntity<Map<String, String>> getNextBus(@PathVariable int stopId) {
-        // Llamamos al servicio que acabamos de configurar con tus claves
+
         String resultado = mobilityService.getNextBusInStop(stopId);
 
         Map<String, String> response = new HashMap<>();

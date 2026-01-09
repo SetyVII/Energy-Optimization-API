@@ -13,7 +13,7 @@ public class LoginDebugTest {
     private static final String EMAIL_REAL = "sebastianvh111@gmail.com";
     private static final String PASS_REAL = "02Dramaturgy";
 
-    // Asegúrate de que la URL termina en / (barra)
+
     private static final String URL_LOGIN = "https://openapi.emtmadrid.es/v1/mobilitylabs/user/login/";
 
     @Test
@@ -23,11 +23,10 @@ public class LoginDebugTest {
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
 
-        // Configuración exacta del HTML que funcionó
+
         headers.set("email", EMAIL_REAL);
         headers.set("password", PASS_REAL);
-        // headers.set("X-ClientId", ...); // Si usaras la otra forma
-        // headers.set("passKey", ...);
+
 
         System.out.println("📡 Enviando petición a: " + URL_LOGIN);
         System.out.println("🔑 Headers: email=" + EMAIL_REAL);
@@ -35,7 +34,7 @@ public class LoginDebugTest {
         try {
             HttpEntity<String> entity = new HttpEntity<>(headers);
 
-            // 1. Intentamos mapear directamente al DTO para ver si Jackson funciona bien
+
             ResponseEntity<EmtLoginDTO> response = restTemplate.exchange(
                     URL_LOGIN, HttpMethod.GET, entity, EmtLoginDTO.class
             );

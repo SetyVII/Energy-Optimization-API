@@ -46,11 +46,11 @@ public class RedElectricaService {
                 return values.get(values.size() - 1).getValue();
             }
 
-            return 0.0; // Si no hay datos
+            return 0.0;
 
         } catch (Exception e) {
             System.err.println("Error conectando a REE: " + e.getMessage());
-            return 25000.0; // Valor fallback
+            return 25000.0;
         }
     }
 }

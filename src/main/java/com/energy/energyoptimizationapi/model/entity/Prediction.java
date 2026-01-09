@@ -17,17 +17,17 @@ public class Prediction {
     private Long id;
 
     @Column(nullable = false)
-    private Double predictedDemand; // La demanda calculada
+    private Double predictedDemand;
 
     @Column(nullable = false)
-    private Double confidence; // Qué tan seguro está el algoritmo (0.0 a 1.0)
+    private Double confidence;
 
     @Column(nullable = false)
     private LocalDateTime createdAt;
 
     @Column(nullable = false)
-    private LocalDateTime validFrom; // Para cuándo es esta predicción
+    private LocalDateTime validFrom;
 
     @Column(nullable = false)
-    private String status; // Ej: "PENDING", "CONFIRMED", "ALERT"
+    private String status;
 }

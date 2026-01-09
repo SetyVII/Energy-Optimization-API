@@ -17,20 +17,20 @@ public class Alert {
     private Long id;
 
     @Column(nullable = false)
-    private String type; // Ej: "HIGH_DEMAND", "HIGH_POLLUTION"
+    private String type;
 
     @Column(nullable = false)
     private String message;
 
     @Column(nullable = false)
-    private String severity; // "LOW", "MEDIUM", "HIGH", "CRITICAL"
+    private String severity;
 
     @Column(nullable = false)
-    private Double triggerValue; // El valor que disparó la alerta
+    private Double triggerValue;
 
     @Column(nullable = false)
     private LocalDateTime timestamp;
 
     @Column(nullable = false)
-    private Boolean resolved; // Si ya se atendió la alerta
+    private Boolean resolved;
 }

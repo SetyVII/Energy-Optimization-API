@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest // Carga todo el contexto de Spring (como si arrancaras la app)
+@SpringBootTest
 public class WeatherServiceIntegrationTest {
 
     @Autowired
@@ -19,7 +19,7 @@ public class WeatherServiceIntegrationTest {
 
         WeatherDTO clima = weatherService.getCurrentWeather();
 
-        // VibeCodeado numero 1
+
         System.out.println("------------------------------------------------");
         System.out.println("✅ ¡CONEXIÓN EXITOSA!");
         System.out.println("📍 Ubicación: " + clima.getLocation());

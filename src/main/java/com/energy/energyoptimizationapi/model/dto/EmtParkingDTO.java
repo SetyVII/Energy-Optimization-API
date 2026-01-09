@@ -13,7 +13,7 @@ public class EmtParkingDTO {
     public static class ParkingItem {
         private Integer id;
         private String name;
-        private Integer freeParking; // Este es el dato clave (puede ser null)
+        private Integer freeParking;
         private Boolean isEmtPark;
     }
 }

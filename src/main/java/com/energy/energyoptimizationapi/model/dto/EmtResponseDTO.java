@@ -11,18 +11,18 @@ public class EmtResponseDTO {
 
     @Data
     public static class DataContainer {
-        // Para la respuesta de Login
+
         private String accessToken;
 
-        // Para la respuesta de Autobuses (llega una lista)
+
         private List<Arrive> arrive;
     }
 
     @Data
     public static class Arrive {
-        private String line;        // Número de línea (ej: "27")
-        private String destination; // Destino
-        private Integer estimateArrive; // Tiempo en segundos
-        private Double DistanceBus;     // Distancia en metros
+        private String line;
+        private String destination;
+        private Integer estimateArrive;
+        private Double DistanceBus;
     }
 }

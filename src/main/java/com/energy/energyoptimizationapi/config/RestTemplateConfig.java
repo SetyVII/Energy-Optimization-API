@@ -13,8 +13,7 @@ public class RestTemplateConfig {
 
     @Bean
     public RestTemplate restTemplate(RestTemplateBuilder builder) {
-        // Configura tiempos de espera para que la app no se quede colgada
-        // si la API externa tarda mucho en responder.
+
         return builder
                 .setConnectTimeout(Duration.ofSeconds(10))
                 .setReadTimeout(Duration.ofSeconds(20))

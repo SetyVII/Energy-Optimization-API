@@ -8,9 +8,9 @@ import java.util.List;
 
 @Repository
 public interface AlertRepository extends JpaRepository<Alert, Long> {
-    // Busca todas las alertas NO resueltas, ordenadas por fecha
+
     List<Alert> findByResolvedFalseOrderByTimestampDesc();
 
-    // Busca alertas de un tipo específico recientes
+
     List<Alert> findByTypeAndTimestampAfter(String type, LocalDateTime time);
 }

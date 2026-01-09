@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class CarbonFootprintDTO {
     private Double co2Equivalent;
-    private String unit; // "kg", "tons"
+    private String unit;
     private String activity;
     private String recommendation;
 }

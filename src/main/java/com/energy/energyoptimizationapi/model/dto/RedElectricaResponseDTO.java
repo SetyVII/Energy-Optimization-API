@@ -16,8 +16,8 @@ public class RedElectricaResponseDTO {
 
     @Data
     public static class Value {
-        private Double value;      // La demanda en MW
-        private String datetime;   // La hora del dato
-        private String tz_time;    // Zona horaria
+        private Double value;
+        private String datetime;
+        private String tz_time;
     }
 }

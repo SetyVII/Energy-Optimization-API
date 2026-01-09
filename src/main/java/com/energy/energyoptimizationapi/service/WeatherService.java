@@ -20,8 +20,6 @@ public class WeatherService {
 
     public WeatherDTO getCurrentWeather() {
         try {
-            // CORRECCIÓN: Añadimos "&timeformat=unixtime" al final de la URL
-            // Esto obliga a la API a devolver un número (ej: 1734258600) en lugar de texto ("2025-12-15T...")
             String url = String.format(Locale.US,
                     "%s?latitude=%f&longitude=%f&current=temperature_2m,relative_humidity_2m,wind_speed_10m&timezone=auto&timeformat=unixtime",
                     OPENMETEO_API, MADRID_LAT, MADRID_LON
@@ -38,7 +36,7 @@ public class WeatherService {
                     current.get("wind_speed_10m").getAsDouble(),
                     "Current weather in Madrid",
                     "Madrid",
-                    current.get("time").getAsLong() // Ahora esto funcionará porque recibe un número
+                    current.get("time").getAsLong()
             );
         } catch (Exception e) {
             throw new RuntimeException("Error fetching weather data: " + e.getMessage(), e);
@@ -47,7 +45,7 @@ public class WeatherService {
 
     public WeatherDTO getWeatherForecast() {
         try {
-            // También añadimos &timeformat=unixtime aquí por coherencia, aunque este método ya usaba System.currentTimeMillis()
+
             String url = String.format(Locale.US,
                     "%s?latitude=%f&longitude=%f&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m&forecast_days=1&timeformat=unixtime",
                     OPENMETEO_API, MADRID_LAT, MADRID_LON

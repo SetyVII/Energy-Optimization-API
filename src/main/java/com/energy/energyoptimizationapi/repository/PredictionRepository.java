@@ -8,9 +8,9 @@ import java.util.List;
 
 @Repository
 public interface PredictionRepository extends JpaRepository<Prediction, Long> {
-    // Encuentra predicciones por estado (ej: "ALERT")
+
     List<Prediction> findByStatus(String status);
 
-    // Encuentra predicciones hechas después de cierta hora
+
     List<Prediction> findByCreatedAtAfter(LocalDateTime time);
 }

@@ -7,7 +7,8 @@ import org.springframework.stereotype.Service;
 public class CarbonFootprintService {
 
     public CarbonFootprintDTO calculateEnergyEmissions(Double energyMWh) {
-        Double emissionsFactor = 0.23; // Factor de emisión en España (kg CO2/kWh) aprox.
+        // TODO: Connect to external API to get real-time Grid Carbon Intensity
+        Double emissionsFactor = 0.23;
         Double totalTons = (energyMWh * 1000 * emissionsFactor) / 1000;
 
         String recommendation = totalTons > 100
@@ -18,7 +19,8 @@ public class CarbonFootprintService {
     }
 
     public CarbonFootprintDTO calculateTransportEmissions(Double passengerKm) {
-        Double emissionsFactor = 0.089; // Factor autobús
+        // TODO: Add support for different vehicle types (Electric vs Diesel)
+        Double emissionsFactor = 0.089;
         Double totalTons = (passengerKm * emissionsFactor) / 1000;
 
         return new CarbonFootprintDTO(totalTons, "tons", "Public transport", "Low emissions");

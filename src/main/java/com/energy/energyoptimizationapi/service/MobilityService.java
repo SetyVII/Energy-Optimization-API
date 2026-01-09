@@ -20,7 +20,7 @@ public class MobilityService {
     @Autowired
     private RestTemplate restTemplate;
 
-    // URLs
+
     @Value("${external.api.emt.url.login}")
     private String loginUrl;
 
@@ -30,7 +30,7 @@ public class MobilityService {
     @Value("${external.api.emt.url.parkings}")
     private String parkingsUrl;
 
-    // Credenciales
+
     @Value("${external.api.emt.email}")
     private String emtEmail;
 
@@ -40,9 +40,7 @@ public class MobilityService {
     private String currentAccessToken = "";
     private String lastError = "";
 
-    /**
-     * 1. LOGIN
-     */
+
     private boolean loginToEmt() {
         System.out.println("🔄 Intentando Login en EMT con: " + emtEmail);
         try {
@@ -71,9 +69,7 @@ public class MobilityService {
         }
     }
 
-    /**
-     * 2. MOVILIDAD REAL (PARKINGS) - Lógica Blindada del Test
-     */
+
     public Double getRealMobilityIndex() {
         if (currentAccessToken.isEmpty()) {
             boolean success = loginToEmt();
@@ -90,14 +86,14 @@ public class MobilityService {
 
             HttpEntity<String> entity = new HttpEntity<>(headers);
 
-            // Pedimos TEXTO puro (String) para usar GSON manual, igual que en el test
+
             ResponseEntity<String> response = restTemplate.exchange(
                     parkingsUrl, HttpMethod.GET, entity, String.class
             );
 
             String jsonRaw = response.getBody();
 
-            // Procesamiento manual con GSON (Igual que tu test exitoso)
+
             if (jsonRaw != null) {
                 JsonObject jsonObject = JsonParser.parseString(jsonRaw).getAsJsonObject();
 
@@ -115,9 +111,9 @@ public class MobilityService {
                         }
                     }
 
-                    System.out.println(" DATOS PARKINGS: " + totalFreeSpots + " plazas libres en " + validParkingsCount + " parkings.");
 
-                    // Cálculo del índice (0.0 vacío - 1.0 lleno)
+
+
                     double maxCapacityReference = 9000.0;
                     double index = 1.0 - (totalFreeSpots / maxCapacityReference);
 
@@ -136,12 +132,11 @@ public class MobilityService {
         return 0.5;
     }
 
-    // --- Otros métodos ---
+
 
     public String getNextBusInStop(int stopId) {
         if (currentAccessToken.isEmpty()) loginToEmt();
-        // ... (Aquí iría tu lógica de bus anterior, resumida para no ocupar espacio) ...
-        // Mantenla como la tenías, usando currentAccessToken
+
         return "Función bus simplificada para este ejemplo";
     }
 

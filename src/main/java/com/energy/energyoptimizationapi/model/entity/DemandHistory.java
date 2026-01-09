@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "demand_history")
-@Data // Lombok genera getters, setters y toString automáticamente
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class DemandHistory {
@@ -29,7 +29,7 @@ public class DemandHistory {
     private Double mobilityIndex;
 
     @Column(nullable = false)
-    private Double actualDemand; // El consumo real en MW
+    private Double actualDemand;
 
     @Column(nullable = false)
     private LocalDateTime timestamp;
